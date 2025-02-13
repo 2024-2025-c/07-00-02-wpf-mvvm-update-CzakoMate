@@ -55,7 +55,7 @@
         </StackPanel>
         <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding }"></TextBox>
         <TextBox Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="A binding helye"></TextBox>
-        <ListBox Grid.Row="8"  Grid.ColumnSpan="2" Margin="2 2 2 2" ItemsSource="{Binding Subjects}"> 
+        <ListBox Grid.Row="8"  Grid.ColumnSpan="2" Margin="2 2 2 2" ItemsSource="{Binding Subjects}" SelectedItem="{Binding SelectedSubject}"> 
             
         </ListBox>
     </Grid>
