@@ -34,6 +34,7 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
         [RelayCommand]
         private async Task ShowSubjectsManagmentView()
         {
+            // Menüpont válsztáskor inicializáljuk az adatokat
             await _subjectsManagmentViewModel.InitializeAsync();
             CurrentSchoolClassChildView = _subjectsManagmentViewModel;
         }

@@ -8,5 +8,6 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
         private readonly ISubjectHttpService _httpService;
 
         //1.feladat: tantárgyak lekérése a backendről (vizsgaremek)
+        //1.a Adatok menüpont kiválasztására jelenjenek meg: InitializeAsync
     }
 }

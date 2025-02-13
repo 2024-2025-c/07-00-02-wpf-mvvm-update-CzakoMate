@@ -5,6 +5,7 @@ namespace Kreta.Desktop.ViewModels.Base
 {
     public  abstract class BaseViewModel : ObservableObject
     {
+        //virtual: a metódus felülírható
         public virtual Task InitializeAsync()
         {
             return Task.CompletedTask;
