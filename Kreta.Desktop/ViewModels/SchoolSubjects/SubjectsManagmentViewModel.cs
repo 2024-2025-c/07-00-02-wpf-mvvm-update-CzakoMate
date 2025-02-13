@@ -18,7 +18,7 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
         private ObservableCollection<Subject> _subjects=new ObservableCollection<Subject>();
         // 2.b Adatstruktúra a kiválasztott tnatárgynak
         [ObservableProperty]
-        private Subject _subject= new Subject();
+        private Subject _selectedSubject= new Subject();
         public SubjectsManagmentViewModel()
         {
             
@@ -45,6 +45,14 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
             List<Subject>  subjects= await _httpService.GetAllAsync();
             //2.a A megérkezett adatokkal újra létrehozzuk a Subjects ObservableCollectiont
             Subjects=new ObservableCollection<Subject>(subjects);
+        }
+        //Felkészülés a dologatra
+        private void ClearForm()
+        {
+            SelectedSubject=new Subject();
+            SelectedSubject.SubjectName=string.Empty;
+            SelectedSubject.ShortName=string.Empty;
+            OnPropertyChanged(nameof(SelectedSubject));
         }
     }
 }
