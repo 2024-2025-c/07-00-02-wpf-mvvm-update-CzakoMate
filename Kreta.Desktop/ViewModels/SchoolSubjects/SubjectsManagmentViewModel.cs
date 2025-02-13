@@ -1,8 +1,10 @@
-﻿using Kreta.Desktop.ViewModels.Base;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Kreta.Desktop.ViewModels.Base;
 using Kreta.HttpService.Services;
 using Kreta.Shared.Models.Entites;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 
@@ -11,6 +13,9 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
     public partial class SubjectsManagmentViewModel : BaseViewModel
     {
         private readonly ISubjectHttpService _httpService;
+        [ObservableProperty]
+        //2. A lekért adatok ebben az adatstruktúrában jelnnek meg majd a viewn
+        private ObservableCollection<Subject> _subjects=new ObservableCollection<Subject>();
         public SubjectsManagmentViewModel()
         {
             
@@ -35,6 +40,8 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
         {
             //1.d HttpService-en kerszetül backend hívás
             List<Subject>  subjects= await _httpService.GetAllAsync();
+            //2.a A megérkezett adatokkal újra létrehozzuk a Subjects ObservableCollectiont
+            Subjects=new ObservableCollection<Subject>(subjects);
         }
     }
 }
