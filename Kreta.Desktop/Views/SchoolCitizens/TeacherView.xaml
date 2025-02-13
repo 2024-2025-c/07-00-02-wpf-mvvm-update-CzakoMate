@@ -50,20 +50,20 @@
                  HorizontalAlignment="Right" 
                  MinWidth="80" 
                  Content="Új adat"
-                 Command="{Binding DoNewStudentCommand}"
+                 Command="{Binding DoNewTeacherCommand}"
                  />
             <Button  Margin="0 10 2 2" 
                  HorizontalAlignment="Right" 
                  MinWidth="80" 
                  Content="Mentés"
-                 Command="{Binding DoSaveCommand}"
+                 Command="{Binding DoSaveTeacherCommand}"
                  CommandParameter="{Binding SelectedTeacher}"
                  />
             <Button  Margin="0 10 2 2"
                  HorizontalAlignment="Right"
                  MinWidth="80"
                  Content="Törlés"
-                 Command="{Binding DoRemoveCommand}"
+                 Command="{Binding DoDeleteTeacherCommand}"
                  CommandParameter="{Binding SelectedTeacher}"
                  />
         </StackPanel>

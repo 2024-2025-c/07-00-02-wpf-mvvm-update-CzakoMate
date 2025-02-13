@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 using Kreta.Desktop.ViewModels.Base;
 using Kreta.HttpService.Services;
 using Kreta.Shared.Models.Entites;
+using Kreta.Shared.Models.Entites.SchoolCitizens;
+using Kreta.Shared.Models.Responses;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -49,6 +51,20 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
             if (subject is not null)
             {
                 await _httpService.DeleteAsync(subject.Id);
+                ClearForm();
+                await UpdateViewAsync();
+            }
+        }
+        [RelayCommand]
+        public async Task DoSaveSubject(Subject subject)
+        {
+            if (subject is not null)
+            {
+                Response response;
+                if (subject.HasId)
+                    response = await _httpService.UpdateAsync(subject);
+                else
+                    response = await _httpService.InsertAsync(subject);
                 ClearForm();
                 await UpdateViewAsync();
             }
