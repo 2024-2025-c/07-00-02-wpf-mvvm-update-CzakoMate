@@ -52,6 +52,8 @@
                HorizontalAlignment="Right"
                MinWidth="80"
                Content="Törlés"
+               Command="{Binding DoDeleteSubjectCommand}"
+               CommandParameter="{Binding SelectedSubject}"
                />
         </StackPanel>
         <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedSubject.SubjectName}"></TextBox>

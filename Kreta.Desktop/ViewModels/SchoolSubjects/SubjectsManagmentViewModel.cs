@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Kreta.Desktop.ViewModels.Base;
 using Kreta.HttpService.Services;
 using Kreta.Shared.Models.Entites;
@@ -36,6 +37,21 @@ namespace Kreta.Desktop.ViewModels.SchoolSubjects
         {
             await UpdateViewAsync();
             base.InitializeAsync();
+        }
+
+        [RelayCommand]
+        private void DoNewSubject()
+        {
+            ClearForm();
+        }
+        [RelayCommand]
+        private async Task DoDeleteSubject(Subject subject) {
+            if (subject is not null)
+            {
+                await _httpService.DeleteAsync(subject.Id);
+                ClearForm();
+                await UpdateViewAsync();
+            }
         }
 
         //1.c Adatok lekérése a backendről
